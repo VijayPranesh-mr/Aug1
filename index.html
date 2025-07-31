@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Girlfriend's Day! 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 25%, #fecfef 50%, #ff9a9e 75%, #f093fb 100%);
+            animation: loveGradient 8s ease-in-out infinite;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes loveGradient {
+            0%, 100% {
+                background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 25%, #fecfef 50%, #ff9a9e 75%, #f093fb 100%);
+            }
+            25% {
+                background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 25%, #ff8a80 50%, #ff80ab 75%, #ea80fc 100%);
+            }
+            50% {
+                background: linear-gradient(135deg, #a8edea 0%, #fed6e3 25%, #ffb3ba 50%, #ffdfba 75%, #ffffba 100%);
+            }
+            75% {
+                background: linear-gradient(135deg, #d299c2 0%, #fef9d7 25%, #daf6ff 50%, #b2dfdb 75%, #f8bbd9 100%);
+            }
+        }
+
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .heart:nth-child(odd) {
+            color: rgba(255, 182, 193, 0.9);
+        }
+        
+        .heart:nth-child(even) {
+            color: rgba(255, 105, 180, 0.8);
+        }
+        
+        .heart:nth-child(3n) {
+            color: rgba(255, 20, 147, 0.7);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.3);
+            }
+            to {
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 30px rgba(255,255,255,0.6);
+            }
+        }
+
+        .date {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .message-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideUp 1s ease-out 0.5s forwards;
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .message {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .reasons {
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .reason {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .reason:nth-child(1) { animation-delay: 1s; }
+        .reason:nth-child(2) { animation-delay: 1.2s; }
+        .reason:nth-child(3) { animation-delay: 1.4s; }
+        .reason:nth-child(4) { animation-delay: 1.6s; }
+        .reason:nth-child(5) { animation-delay: 1.8s; }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .reason-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            min-width: 30px;
+        }
+
+        .interactive-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+            box-shadow: 0 4px 15px rgba(255,107,107,0.3);
+        }
+
+        .interactive-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255,107,107,0.4);
+        }
+
+        .surprise-message {
+            display: none;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef, #ff9a9e);
+            color: #444;
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 20px;
+            animation: bounceIn 0.6s ease-out;
+            box-shadow: 0 10px 30px rgba(255, 154, 158, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            font-style: italic;
+            line-height: 1.8;
+            text-align: left;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .photo-heart {
+            margin: 20px 0 30px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .heart-shape {
+            position: relative;
+            width: 300px;
+            height: 270px;
+            transform: rotate(-45deg);
+        }
+
+        .heart-shape:before,
+        .heart-shape:after {
+            content: '';
+            width: 150px;
+            height: 240px;
+            position: absolute;
+            left: 75px;
+            top: 0;
+            background: rgba(255, 182, 193, 0.1);
+            border-radius: 150px 150px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .heart-shape:after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        .photo-slot {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: rgba(255, 107, 107, 0.6);
+        }
+
+        .photo-slot:hover {
+            transform: rotate(45deg) scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .photo-slot[data-slot="1"] { top: 30px; left: 75px; }
+        .photo-slot[data-slot="2"] { top: 60px; left: 120px; }
+        .photo-slot[data-slot="3"] { top: 60px; left: 30px; }
+        .photo-slot[data-slot="4"] { top: 100px; left: 90px; }
+        .photo-slot[data-slot="5"] { top: 140px; left: 120px; }
+        .photo-slot[data-slot="6"] { top: 140px; left: 60px; }
+        .photo-slot[data-slot="7"] { top: 180px; left: 90px; }
+
+        .photo-slot.has-image {
+            color: transparent;
+        }
+
+        .upload-instruction {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            font-size: 0.9rem;
+            color: #666;
+            border: 2px dashed rgba(255, 107, 107, 0.3);
+        }
+        .footer {
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            .message-card {
+                padding: 25px;
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="container">
+        <h1 class="main-title">Happy Girlfriend's Day, Praggya! 💝</h1>
+        <div class="date">August 1st, 2025 - A day as beautiful as you</div>
+        
+        <div class="photo-heart" id="photoHeart">
+            <div class="heart-shape">
+                <div class="photo-slot" data-slot="1"></div>
+                <div class="photo-slot" data-slot="2"></div>
+                <div class="photo-slot" data-slot="3"></div>
+                <div class="photo-slot" data-slot="4"></div>
+                <div class="photo-slot" data-slot="5"></div>
+                <div class="photo-slot" data-slot="6"></div>
+                <div class="photo-slot" data-slot="7"></div>
+            </div>
+        </div>
+
+        <div class="message-card">
+            <div class="message">
+                My Dearest Praggya,
+            </div>
+            
+            <div class="message">
+                In a world full of ordinary, you are my extraordinary. Every sunrise feels warmer, every star shines brighter, and every moment becomes a treasured memory because you're in my life. Here's why my heart belongs completely to you:
+            </div>
+            
+            <div class="reasons">
+                <div class="reason">
+                    <span class="reason-icon">💝</span>
+                    <span>Your laugh is the most beautiful melody I've ever heard</span>
+                </div>
+                <div class="reason">
+                    <span class="reason-icon">🌹</span>
+                    <span>The way you say my name makes my heart skip a beat</span>
+                </div>
+                <div class="reason">
+                    <span class="reason-icon">✨</span>
+                    <span>Your eyes hold galaxies that I could get lost in forever</span>
+                </div>
+                <div class="reason">
+                    <span class="reason-icon">💖</span>
+                    <span>You make me want to be the best version of myself</span>
+                </div>
+                <div class="reason">
+                    <span class="reason-icon">🌙</span>
+                    <span>Even in my dreams, I find myself dreaming of you</span>
+                </div>
+            </div>
+            
+            <button class="interactive-btn" onclick="showSurprise()">A Love Letter Just For You 💌</button>
+            <button class="interactive-btn" onclick="createMoreHearts()">Fill The Sky With Our Love! 💖</button>
+            
+            <div class="surprise-message" id="surpriseMessage">
+                🌹 My Beloved Praggya,<br><br>
+                
+                Words feel so small when I try to capture the ocean of love I have for you. You are the poetry my heart never knew how to write, the song my soul was always meant to sing. When I look into your eyes, I see not just my present, but my entire future painted in the most beautiful colors.<br><br>
+                
+                You are the gentle sunrise that chases away all my darkness, the sweet whisper that calms every storm in my heart. In your smile, I found my home. In your laugh, I discovered joy I never knew existed. In your love, I found the missing piece of my soul I didn't even know I was searching for.<br><br>
+                
+                Every heartbeat of mine calls your name. Every breath I take is sweeter because you exist in this world with me. You don't just make me happy, Praggya - you make me feel alive in ways I never thought possible. You are my first thought when I wake up and my last prayer before I sleep.<br><br>
+                
+                I promise to love you not just for who you are today, but for all the beautiful souls you're yet to become. I promise to hold your dreams as tenderly as I hold your hand, to support your ambitions as fiercely as I protect your heart. With you, forever doesn't feel long enough.<br><br>
+                
+                You are my greatest blessing, my deepest love, my eternal companion. Thank you for choosing to love me back, for seeing beauty in my flaws, and for making every ordinary day feel like magic.<br><br>
+                
+                Forever and always yours,<br>
+                Your devoted heart 💕
+            </div>
+        </div>
+        
+        <div class="footer">
+            Made with endless love and devotion, just for my beautiful Praggya ❤️
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts with variety
+        function createHeart() {
+            const heartTypes = ['💖', '💕', '💗', '💘'];
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = heartTypes[Math.floor(Math.random() * heartTypes.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            
+            document.getElementById('hearts').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+
+        // Create hearts continuously
+        setInterval(createHeart, 800);
+
+        // Interactive functions
+        function showSurprise() {
+            const surprise = document.getElementById('surpriseMessage');
+            if (surprise.style.display === 'none' || surprise.style.display === '') {
+                surprise.style.display = 'block';
+            } else {
+                surprise.style.display = 'none';
+            }
+        }
+
+        function createMoreHearts() {
+            // Create a burst of different heart emojis
+            const heartTypes = ['💖', '💕', '💗', '💘', '💝', '💞', '💓', '💜', '🤍', '❤️', '🧡', '💙', '💚', '💛'];
+            
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.innerHTML = heartTypes[Math.floor(Math.random() * heartTypes.length)];
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    heart.style.animationDelay = '0s';
+                    heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                    
+                    document.getElementById('hearts').appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 4000);
+                }, i * 150);
+            }
+        }
+
+        // Initialize photo slots with camera icons
+        window.onload = function() {
+            const photoSlots = document.querySelectorAll('.photo-slot');
+            photoSlots.forEach(slot => {
+                if (!slot.classList.contains('has-image')) {
+                    slot.innerHTML = '📷';
+                }
+            });
+            
+            for (let i = 0; i < 5; i++) {
+                setTimeout(createHeart, i * 200);
+            }
+        }
+    </script>
+</body>
+</html>
